@@ -6,6 +6,7 @@ import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import {Routes,Route,Link } from 'react-router-dom';
 import Home from './screens/Home';
 import Contact from './screens/Contact';
+import Pricing from './screens/Pricing';
 
 
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route exact path='/contact' element={<Contact/>}/>
+        <Route exact path='/pricing' element={<Pricing/>}/>
       </Routes>
     </div>
 
