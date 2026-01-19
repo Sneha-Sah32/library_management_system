@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
 
 export default function Start() {
   return (
@@ -30,7 +31,10 @@ export default function Start() {
           <input type="email" placeholder='Email' />
           <input type="password" placeholder='password' />
         </div>
-        <div></div>
+        <div>
+          <p>Already have an account?</p>
+        <Link to="/login">Log in</Link>
+        </div>
       </div>
     </div>
   )

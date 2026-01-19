@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import Contact from './screens/Contact';
 import Pricing from './screens/Pricing';
 import Start from './screens/Start';
+import Login from './screens/Login';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/contact' element={<Contact/>}/>
         <Route exact path='/pricing' element={<Pricing/>}/>
         <Route exact path='/start' element={<Start/>}/>
+        <Route exact path='/login' element={<Login/>}/>
       </Routes>
     </div>
 
