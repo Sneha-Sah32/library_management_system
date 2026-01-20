@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import styles from "./pricing.module.css"
 
 export default function Pricing() {
   return (
@@ -20,12 +21,12 @@ export default function Pricing() {
 
     <Navbar/>
 
-    <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div className={` pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center`}>
       <h1 className="display-4">Pricing</h1>
       <p className="lead">Compare and explore our plans below.</p>
     </div>
 
-    <div className="container">
+    <div className={`${styles.pricing}`}>
       <div className="card-deck mb-3 text-center">
         <div className="card mb-4 box-shadow">
           <div className="card-header">
@@ -73,6 +74,7 @@ export default function Pricing() {
           </div>
         </div>
       </div>
+       </div>
       <Footer/>
 
       {/* <footer className="pt-4 my-md-5 pt-md-5 border-top">
@@ -112,9 +114,6 @@ export default function Pricing() {
           </div>
         </div>
       </footer> */}
-    </div>
-
-
 
     </>
   )
