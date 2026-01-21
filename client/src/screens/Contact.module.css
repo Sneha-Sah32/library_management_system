@@ -1,6 +1,9 @@
 .contact{
-    margin-top: 5rem;
+    margin: 5rem;
     height: 70vh;
+    border: 2px solid black;
+    padding: 3rem;
+    background-color: khaki;
 }
 
 .container{

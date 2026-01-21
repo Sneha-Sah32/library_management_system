@@ -1,0 +1,11 @@
+.login{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid black;
+    padding: 5rem;
+    background-color: palegoldenrod;
+}
