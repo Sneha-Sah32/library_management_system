@@ -20,7 +20,7 @@ export default function Navbar() {
           <Link className="nav-link" to="/pricing">Pricing</Link>
         </li>
       </ul>
-      <Link type="button" className="btn btn-outline-primary" to="/start">Get Started</Link>
+      <Link type="button" className="btn btn-outline-primary mx-3" to="/start">Get Started</Link>
       <Link type="button" className="btn btn-outline-primary" to="/login">Log In</Link>
       {/* <form className="d-flex">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

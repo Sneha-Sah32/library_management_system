@@ -31,6 +31,7 @@ export default function Start() {
           <input type="text" placeholder='Last Name' />
           <input type="email" placeholder='Email' />
           <input type="password" placeholder='password' />
+          <button className='btn btn-primary my-3'>submit</button>
         </div>
         <div>
           <p>Already have an account?</p>
