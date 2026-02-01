@@ -1,4 +1,5 @@
 const userModel = require("../models/User");
+const adminModel = require("../models/Admin");
 const jwt= require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -17,7 +18,7 @@ async function registerUser(req,res){
 
     const token = jwt.sign({
         id : user._id,
-    },"33ebf90bdf180d310980e8a8a2b78f67")
+    },process.env.JWT_SECRET)
     res.cookie("token",token)
 
     res.status(201).json({
@@ -32,6 +33,134 @@ async function registerUser(req,res){
     const hashedpassword = await bcrypt.hash(password,10)
 }
 
+async function loginUser(req,res) {
+    const {email,password}=req.body;
+
+    const user = userModel.findOne({
+        email
+    })
+
+    if (!user){
+        res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+
+    const isPasswordValid = await bcrypt.compare(password,user.password);
+
+    if (!isPasswordValid){
+        res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+
+    const token = jwt.sign({
+        id:user._id,
+    },process.env.JWT_SECRET);
+
+    res.cookie("token",token)
+
+    res.status(201).json({
+        message:"User logged in successfully",
+        user:{
+            _id:user._id,
+            email:user.email,
+            password:user.password
+        }
+    })
+
+}
+
+function logoutUser(req,res){
+    res.clearCookie("token");
+    res.status(200).json({
+        message:"User logged out Succesfully"
+    })
+}
+
+//admin
+
+
+async function registerAdmin(req,res){
+    const {fullname,email,password}=req.body;
+
+    const isAdminAlreadyExists = await adminModel.findOne({
+        email
+    })
+
+    if (isAdminAlreadyExists){
+        return res.status(400).json({
+            message:"Admin Already Exists."
+        })
+    }
+
+    const token = jwt.sign({
+        id : admin._id,
+    },process.env.JWT_SECRET)
+    res.cookie("token",token)
+
+    res.status(201).json({
+        message:"Admin registerd",
+        user:{
+            _id:admin._id,
+            email:admin.email,
+            fullname:admin.fullname
+        }
+    })
+
+    const hashedpassword = await bcrypt.hash(password,10)
+}
+
+async function loginAdmin(req,res) {
+    const {email,password}=req.body;
+
+    const admin = adminModel.findOne({
+        email
+    })
+
+    if (!user){
+        res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+
+    const isPasswordValid = await bcrypt.compare(password,admin.password);
+
+    if (!isPasswordValid){
+        res.status(400).json({
+            message:"Invalid email or password"
+        })
+    }
+
+    const token = jwt.sign({
+        id:admin._id,
+    },process.env.JWT_SECRET);
+
+    res.cookie("token",token)
+
+    res.status(201).json({
+        message:"Admin logged in successfully",
+        user:{
+            _id:admin._id,
+            email:admin.email,
+            password:admin.password
+        }
+    })
+
+}
+
+function logoutAdmin(req,res){
+    res.clearCookie("token");
+    res.status(200).json({
+        message:"Admin logged out Succesfully"
+    })
+}
+
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser,
+    logoutUser,
+    registerAdmin,
+    loginAdmin,
+    logoutAdmin
 }

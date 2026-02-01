@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURL = "mongodb+srv://sahsneha2062_db_user:librarymgnt@librarymanagement.pgwfihl.mongodb.net/?appName=librarymanagement";
+const mongoURL = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
