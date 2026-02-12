@@ -9,12 +9,19 @@ import Contact from './screens/Contact';
 import Pricing from './screens/Pricing';
 import Start from './screens/Start';
 import Login from './screens/Login';
+import Book from './screens/Book';
+
+
 
 
 
 function App() {
-  return (
 
+  // useEffect(()=>{
+  //   fetch("http://localhost:5000/api/")
+  // })
+
+  return (
     <div className="App">
       <Routes>
         <Route exact path='/' element={<Home/>}/>
@@ -22,6 +29,7 @@ function App() {
         <Route exact path='/pricing' element={<Pricing/>}/>
         <Route exact path='/start' element={<Start/>}/>
         <Route exact path='/login' element={<Login/>}/>
+        <Route exact path='/book' element={<Book/>}/>
       </Routes>
     </div>
 

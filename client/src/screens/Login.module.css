@@ -7,5 +7,6 @@
     gap: 15px;
     border: 2px solid black;
     padding: 5rem;
-    background-color: palegoldenrod;
+        background-color: rgb(229, 226, 203);
+    /* background-color: palegoldenrod; */
 }

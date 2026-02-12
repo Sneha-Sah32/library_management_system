@@ -1,6 +1,11 @@
 .Bodyout{
-    padding: 5rem;
-    margin: 5rem;
-    height: 70vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 3rem;
+    height: 94vh;
     border: 2px solid black;
 }
+
+/* .carousel-inner{
+    height: 50px;
+} */

@@ -16,6 +16,14 @@ async function registerUser(req,res){
         })
     }
 
+     const hashedpassword = await bcrypt.hash(password,10)
+
+     const user = await userModel.create({
+        fullname,
+        email,
+        password:hashedpassword
+     });
+
     const token = jwt.sign({
         id : user._id,
     },process.env.JWT_SECRET)
@@ -23,6 +31,7 @@ async function registerUser(req,res){
 
     res.status(201).json({
         message:"User registerd",
+        token,   //<- this token must be sent so that we can use it in frontend and switch login and out
         user:{
             _id:user._id,
             email:user.email,
@@ -30,13 +39,13 @@ async function registerUser(req,res){
         }
     })
 
-    const hashedpassword = await bcrypt.hash(password,10)
+   
 }
 
 async function loginUser(req,res) {
     const {email,password}=req.body;
 
-    const user = userModel.findOne({
+    const user = await userModel.findOne({
         email
     })
 
@@ -61,7 +70,7 @@ async function loginUser(req,res) {
     res.cookie("token",token)
 
     res.status(201).json({
-        message:"User logged in successfully",
+        message:"User logged in successfully",token,
         user:{
             _id:user._id,
             email:user.email,
@@ -76,6 +85,7 @@ function logoutUser(req,res){
     res.status(200).json({
         message:"User logged out Succesfully"
     })
+    // res.redirect("/loginUser")
 }
 
 //admin

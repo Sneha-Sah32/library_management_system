@@ -18,12 +18,17 @@
 
 .subs0{
     border-right: 2px solid black;
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
 }
 .subs1{
     border-right: 2px solid black;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
 }
 .subs2{
-    background-color: burlywood;
+    /* background-color: burlywood; */
+}
+
+.info{
+    border: 2px solid black;
+    background-color: rgb(229, 226, 203);
 }
