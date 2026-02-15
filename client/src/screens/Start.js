@@ -3,8 +3,11 @@ import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import styles from "./Start.module.css"
 import { useAuth } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Start() {
+
+  const navigate = useNavigate();
 
   const {login} = useAuth();
 
@@ -28,6 +31,7 @@ export default function Start() {
       if (res.ok){  //(data.success)   changed to match backend response
         login(data.token)
         alert("Registration successful");
+        navigate("/");
       }else{
         alert(data.message)
       }

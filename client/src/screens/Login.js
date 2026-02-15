@@ -1,6 +1,6 @@
 import React, { use, useState } from 'react'
 import Navbar from '../components/Navbar'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './Login.module.css'
 import { useAuth } from '../context/AuthContext'
 
@@ -10,6 +10,7 @@ export default function Login() {
 
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
+  const navigate = useNavigate();
 
 
   const handleLogin = async (e) => {
@@ -30,6 +31,7 @@ export default function Login() {
     // localStorage.setItem("token",data.token);  //setItem
     
     alert("login successful");
+    navigate("/");
   }else{
     alert(data.message);
   }
