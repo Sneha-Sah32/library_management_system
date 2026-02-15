@@ -7,6 +7,7 @@ const mongodb = require("./db"); //index.js ma nalekhinjel samma db work gardain
 const cookieparser = require('cookie-parser');
 const authRoutes = require("./routes/auth.route");
 const bookRoutes = require("./routes/book.route");
+const profileRoutes = require("./routes/profile.route");
 
 
 mongodb(); //mathi kai lai as a function call gareko
@@ -37,6 +38,7 @@ app.get("/",(req,res)=>{
 //routes
 app.use("/api/auth",authRoutes);
 app.use("/api", bookRoutes);
+app.use("/api", profileRoutes);
 
 // console.log("Mongo URI:", process.env.MONGO_URI);
 

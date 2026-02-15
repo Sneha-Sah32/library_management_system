@@ -24,6 +24,7 @@ export default function Start() {
         headers:{
           "Content-Type":"application/json"
         },
+        credentials:"include",
         body:JSON.stringify({fullname:name,email,password})
       });
       const data = await res.json();

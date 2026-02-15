@@ -10,6 +10,7 @@ import Pricing from './screens/Pricing';
 import Start from './screens/Start';
 import Login from './screens/Login';
 import Book from './screens/Book';
+import Profile from './screens/Profile';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route exact path='/start' element={<Start/>}/>
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/book' element={<Book/>}/>
+        <Route exact path='/profile' element={<Profile/>}/>
       </Routes>
     </div>
 

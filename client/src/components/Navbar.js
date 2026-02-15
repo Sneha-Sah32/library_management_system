@@ -119,9 +119,7 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact Us</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/pricing">Pricing</Link>
-            </li>
+            
           </ul>
 
           {isLoggedIn ? (
@@ -130,6 +128,13 @@ export default function Navbar() {
              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
              <li className="nav-item">
               <Link className="nav-link active" to="/book">Books</Link>
+            </li>
+            </ul>
+            </div>
+            <div className="collapse navbar-collapse">
+             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+              <Link className="nav-link active" to="/profile">Profile</Link>
             </li>
             </ul>
             </div>
@@ -142,6 +147,21 @@ export default function Navbar() {
             </>
           ) : (
             <>
+            {/* <li className="nav-item">
+              <Link className="nav-link" to="/pricing">Pricing</Link>
+            </li> */}
+            
+
+             {/* <Link className="nav-link" to="/pricing">Pricing</Link> */}
+
+             <div className="collapse navbar-collapse">
+             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+             <Link className="nav-link" to="/pricing">Pricing</Link>
+            </li>
+            </ul>
+            </div>
+
               <Link
                 className="btn btn-outline-primary mx-3"
                 to="/start"

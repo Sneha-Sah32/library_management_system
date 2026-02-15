@@ -27,7 +27,11 @@ async function registerUser(req,res){
     const token = jwt.sign({
         id : user._id,
     },process.env.JWT_SECRET)
-    res.cookie("token",token)
+    res.cookie("token",token,{
+        httpOnly: true,
+     sameSite: "lax",
+     secure: false
+    })
 
     res.status(201).json({
         message:"User registerd",
@@ -67,7 +71,11 @@ async function loginUser(req,res) {
         id:user._id,
     },process.env.JWT_SECRET);
 
-    res.cookie("token",token)
+    res.cookie("token",token,{
+        httpOnly: true,
+     sameSite: "lax",
+     secure: false
+    })
 
     res.status(201).json({
         message:"User logged in successfully",token,
@@ -87,6 +95,31 @@ function logoutUser(req,res){
     })
     // res.redirect("/loginUser")
 }
+
+// async function profile(req,res){
+//    try{
+//      const token = req.cookies.token;
+
+//     if(!token){
+//          res.status(401).json({
+//             message:"No token"
+//         });
+//     }
+
+//     const decoded = jwt.verify(token,process.env.JWT_SECRET);
+
+//     const user = await userModel
+//     .findById(decoded.id)
+//     .select("-password");
+
+//     res.json(user);
+// }
+// catch(error){
+//  res.status(401).json({
+//     message:"Invalid token"
+// });
+// }
+// }
 
 //admin
 
@@ -170,6 +203,7 @@ module.exports = {
     registerUser,
     loginUser,
     logoutUser,
+    
     registerAdmin,
     loginAdmin,
     logoutAdmin
