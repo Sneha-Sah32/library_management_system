@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './Login.module.css'
 import { useAuth } from '../context/AuthContext'
+import Footer from '../components/Footer'
 
 export default function Login() {
 
@@ -54,6 +55,7 @@ export default function Login() {
         <p>Don't have an account?</p>
         <Link to="/start">Sign up</Link>
       </form>
+      <Footer/>
     </>
   )
 }

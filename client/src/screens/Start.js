@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styles from "./Start.module.css"
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 export default function Start() {
 
@@ -71,12 +72,15 @@ export default function Start() {
           <input type="email" placeholder='Email' value={email} required onChange={(e)=>setEmail(e.target.value)}/>
           <input type="password" placeholder='password' value={password} required onChange={(e)=>setPassword(e.target.value)}/>
           <button className='btn btn-primary my-3'>submit</button>
-        </div>
-        <div>
           <p>Already have an account?</p>
         <Link to="/login">Log in</Link>
         </div>
+        {/* <div>
+          <p>Already have an account?</p>
+        <Link to="/login">Log in</Link>
+        </div> */}
       </form>
+      <Footer/>
     </div>
   )
 }

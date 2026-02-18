@@ -1,11 +1,16 @@
 .Bodyout{
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin: 3rem;
-    height: 94vh;
-    border: 2px solid black;
+    /* padding-left: 2rem;
+    padding-right: 2rem; */
+    /* margin: 3rem; */
+    height: 85vh;
+    /* border: 2px solid black; */
 }
 
 /* .carousel-inner{
     height: 50px;
 } */
+
+.writing{
+    color: white;
+    margin-top: 20rem;
+}

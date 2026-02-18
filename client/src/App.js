@@ -11,6 +11,8 @@ import Start from './screens/Start';
 import Login from './screens/Login';
 import Book from './screens/Book';
 import Profile from './screens/Profile';
+import AboutUs from './screens/AboutUs';
+import Dashboard from './screens/Dashboard';
 
 
 
@@ -32,6 +34,8 @@ function App() {
         <Route exact path='/login' element={<Login/>}/>
         <Route exact path='/book' element={<Book/>}/>
         <Route exact path='/profile' element={<Profile/>}/>
+        <Route exact path='/about' element={<AboutUs/>}/>
+        <Route exact path='/dash' element={<Dashboard/>}/>
       </Routes>
     </div>
 
