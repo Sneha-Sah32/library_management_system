@@ -20,9 +20,6 @@ import Dashboard from './screens/Dashboard';
 
 function App() {
 
-  // useEffect(()=>{
-  //   fetch("http://localhost:5000/api/")
-  // })
 
   return (
     <div className="App">
