@@ -5,7 +5,7 @@ import styles from "./Contact.module.css"
 
 export default function Contact() {
   return (
-    <div>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
      <Navbar/>
      <div className={`${styles.contact}`}>
      <h1>Contact Us</h1>

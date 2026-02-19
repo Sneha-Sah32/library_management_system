@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 export default function AboutUs() {
   return (
-    <>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar />
 
       {/* Hero Section */}
@@ -124,6 +124,6 @@ export default function AboutUs() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }

@@ -26,7 +26,7 @@ export default function Books() {
   }, []);
 
   return (
-    <div>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar />
       <div className="container my-5">
         <h2 className="mb-4 text-center">Library Books</h2>

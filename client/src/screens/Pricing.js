@@ -7,7 +7,7 @@ import styles from "./pricing.module.css";
 
 export default function Pricing() {
   return (
-    <>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar />
 
       {/* Header */}
@@ -91,6 +91,6 @@ export default function Pricing() {
       </div>
 
       <Footer />
-    </>
+    </div>
   );
 }

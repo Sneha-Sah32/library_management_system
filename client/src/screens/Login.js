@@ -45,8 +45,9 @@ export default function Login() {
 
 
   return (
-    <>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar/>
+      <div>
       <form className={`${styles.login}`} onSubmit={handleLogin}>
         <h3>Manager Login</h3>
         <input type="email" placeholder='Email' value={email} required onChange={(e) => setEmail(e.target.value)}/>
@@ -55,7 +56,8 @@ export default function Login() {
         <p>Don't have an account?</p>
         <Link to="/start">Sign up</Link>
       </form>
+      </div>
       <Footer/>
-    </>
+    </div>
   )
 }

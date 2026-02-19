@@ -45,7 +45,7 @@ export default function Start() {
   
 
   return (
-    <div>
+    <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar/>
       <h1>Sign up for LIBRARYLYNX</h1>
       <p>Your library catalog available anywhere, anytime.</p>
