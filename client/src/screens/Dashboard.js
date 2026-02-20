@@ -24,6 +24,9 @@ export default function AdminDashboard() {
           <ul className="nav flex-column">
             <li className="nav-item mb-3">
               <Link to="/dash" className="nav-link text-white">
+              <span className="sidebar-toggle" onclick="toggleSidebar()">
+                <i className="fa fa-bars"></i>
+                    </span>
                 📊 Dashboard
               </Link>
             </li>
@@ -70,7 +73,7 @@ export default function AdminDashboard() {
           <div className="p-4">
 
             {/* Stats Cards */}
-            <div className="row mb-4">
+            {/* <div className="row mb-4">
               <div className="col-md-3 mb-3">
                 <div className="card shadow-sm text-center">
                   <div className="card-body">
@@ -106,10 +109,10 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Recent Activity Table */}
-            <div className="card shadow-sm">
+            {/* <div className="card shadow-sm">
               <div className="card-body">
                 <h5 className="mb-3">Recent Book Additions</h5>
 
@@ -147,7 +150,7 @@ export default function AdminDashboard() {
                 </div>
 
               </div>
-            </div>
+            </div> */}
 
           </div>
         </div>
