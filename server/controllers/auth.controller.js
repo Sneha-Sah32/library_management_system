@@ -2,6 +2,17 @@ const userModel = require("../models/User");
 const adminModel = require("../models/Admin");
 const jwt= require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const nodemailer = require("nodemailer");
+
+// Create transporter once
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
 
 async function registerUser(req,res){
     const {fullname,email,password}=req.body;
@@ -121,6 +132,91 @@ function logoutUser(req,res){
 // }
 // }
 
+// ================= SEND OTP =================
+ async function sendOtp  (req, res) {
+  try {
+    const { email } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.json({ message: "If email exists, OTP sent." });
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    user.resetOtp = otp;
+    user.resetOtpExpires = Date.now() + 5 * 60 * 1000; // 5 minutes
+    await user.save();
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: user.email,
+      subject: "Password Reset OTP",
+      text: `Your OTP is: ${otp}`
+    });
+
+    res.json({ message: "OTP sent to email" });
+
+  } catch (error) {
+        console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// ================= VERIFY OTP =================
+
+
+
+async function verifyOtp (req, res) {
+  try {
+    const { email, otp } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (
+      !user ||
+      user.resetOtp !== otp ||
+      user.resetOtpExpires < Date.now()
+    ) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
+
+    res.json({ message: "OTP verified" });
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
+// ================= RESET PASSWORD =================
+async function resetPassword  (req, res) {
+  try {
+    const { email, newPassword } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    user.password = hashedPassword;
+    user.resetOtp = undefined;
+    user.resetOtpExpires = undefined;
+
+    await user.save();
+
+    res.json({ message: "Password reset successful" });
+
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
 //admin
 
 
@@ -199,11 +295,15 @@ function logoutAdmin(req,res){
     })
 }
 
+
+
 module.exports = {
     registerUser,
     loginUser,
     logoutUser,
-    
+    sendOtp,
+    verifyOtp,
+    resetPassword,
     registerAdmin,
     loginAdmin,
     logoutAdmin

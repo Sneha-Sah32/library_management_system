@@ -9,6 +9,7 @@ import Signup from "./pages/Signup"
 import Contact from "./pages/Contact"
 import Admin from "./pages/Admin"
 import StudentDashboard from "./pages/StudentDashboard";
+import ForgotPassword from "./pages/ForgotPassword";
 // import Student from "./pages/student"
 
  function App(){
@@ -24,6 +25,7 @@ import StudentDashboard from "./pages/StudentDashboard";
             <Route path="/contact" element={<Contact/>}/>
             <Route path="/admin" element={<admin/>}/>
             <Route path="/student" element={<StudentDashboard/>}/>
+            <Route path="/forget" element={<ForgotPassword/>}/>
 
           </Routes>
         </div>

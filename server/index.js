@@ -40,6 +40,9 @@ app.get("/",(req,res)=>{
 app.use("/api/auth",authRoutes);
 app.use("/api", bookRoutes);
 app.use("/api", profileRoutes);
+// router.post("/api/auth", authController.sendOtp);
+// router.post("/api/auth", authController.verifyOtp);
+// router.post("/api/auth", authController.resetPassword);
 // app.use("/api", dashboardRoutes);
 
 // console.log("Mongo URI:", process.env.MONGO_URI);

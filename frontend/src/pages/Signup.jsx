@@ -1,8 +1,48 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import bgImage from "../assets/signupp.jpg"
+import { useAuth } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
+import {Eye,EyeOff} from "lucide-react";
 
 export default function Signup() {
+  
+  const navigate = useNavigate();
+  const [showPassword ,setShowPassword] = useState(false);
+
+  const {login} = useAuth();
+
+  const [name, setName]=useState("");
+  const [email,setEmail]=useState("");
+  const [password,setPassword]=useState("");
+
+  const handleRegister = async (e)=>{
+    e.preventDefault();
+
+    try{
+      const res = await fetch("http://localhost:5000/api/auth/user/register",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        credentials:"include",
+        body:JSON.stringify({fullname:name,email,password})
+      });
+      const data = await res.json();
+
+      if (res.ok){  //(data.success)   changed to match backend response
+        login(data.token)
+        alert("Registration successful");
+        // navigate("/");
+      }else{
+        alert(data.message)
+      }
+    }catch(err){
+      console.error(err);
+      alert("Server error");
+    }
+  }
+  
   return (
     <div
           className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
@@ -13,14 +53,16 @@ export default function Signup() {
           Create Your Account
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleRegister}>
           <div>
             <label className="block text-gray-700 text-md mb-1">Full Name</label>
             <input
               type="text"
               placeholder="Sneha Sah"
               className="w-full rounded-lg text-black p-2 placeholder-gray-400 border-2 border-gray-400"
+              value={name} required onChange={(e) => setName(e.target.value)}
             />
+            
           </div>
 
           <div>
@@ -29,26 +71,35 @@ export default function Signup() {
               type="email"
               placeholder="Sneha@gmail.com"
               className="w-full border-2 border-gray-400 placeholder-gray-400 rounded-lg text-black p-2"
+              value={email} required onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
           <div>
             <label className="block text-gray-700 text-sm mb-1">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text":"password"}
               placeholder="********"
               className="w-full border-2 border-gray-400 placeholder-gray-400 rounded-lg text-black p-2"
+              value={password} required onChange={(e) => setPassword(e.target.value)}
             />
+            <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="px-3 text-gray-500 hover:text-gray-700 my-1 ms-5"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
           </div>
 
-          <div>
+          {/* <div>
             <label className="block text-gray-700 text-sm mb-1">Confirm Password</label>
             <input
               type="password"
               placeholder="********"
               className="w-full border-2 border-gray-400 placeholder-gray-400 rounded-lg text-black p-2"
             />
-          </div>
+          </div> */}
 
           <button
             type="submit"
