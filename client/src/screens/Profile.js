@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
+import { Link } from "react-router-dom"
 
 
 const Profile = () => {
@@ -33,6 +35,7 @@ if (loading) return <div>Loading...</div>;
     <div>
       
          <Navbar/>
+         <Sidebar/>
          <div className='container' style={{height:"30rem",marginBottom:"4rem",marginTop:"5rem"}}>
        <h1>Profile</h1>
       <img

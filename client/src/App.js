@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import {Routes,Route,Link } from 'react-router-dom';
 import Home from './screens/Home';
 import Contact from './screens/Contact';
@@ -13,6 +14,7 @@ import Book from './screens/Book';
 import Profile from './screens/Profile';
 import AboutUs from './screens/AboutUs';
 import Dashboard from './screens/Dashboard';
+import AdminDashboard from './screens/AdminDashboard';
 
 
 
@@ -33,6 +35,7 @@ function App() {
         <Route exact path='/profile' element={<Profile/>}/>
         <Route exact path='/about' element={<AboutUs/>}/>
         <Route exact path='/dash' element={<Dashboard/>}/>
+        <Route exact path='/admindash' element={<AdminDashboard/>}/>
       </Routes>
     </div>
 

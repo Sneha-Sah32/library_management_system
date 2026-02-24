@@ -8,13 +8,14 @@ const cookieparser = require('cookie-parser');
 const authRoutes = require("./routes/auth.route");
 const bookRoutes = require("./routes/book.route");
 const profileRoutes = require("./routes/profile.route");
+const dashboardRoutes = require("./routes/dashboard.route");
 
 
 mongodb(); //mathi kai lai as a function call gareko
 
 //place cors first
 app.use(cors({
-    origin:"http://localhost:3000",
+    origin:"http://localhost:5173",
     credentials:true
 }))
 app.use(express.json());
@@ -39,6 +40,7 @@ app.get("/",(req,res)=>{
 app.use("/api/auth",authRoutes);
 app.use("/api", bookRoutes);
 app.use("/api", profileRoutes);
+// app.use("/api", dashboardRoutes);
 
 // console.log("Mongo URI:", process.env.MONGO_URI);
 

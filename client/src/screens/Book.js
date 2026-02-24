@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
@@ -28,6 +29,7 @@ export default function Books() {
   return (
     <div style={{backgroundColor:"rgb(241, 230, 230)"}}>
       <Navbar />
+      <Sidebar/>
       <div className="container my-5">
         <h2 className="mb-4 text-center">Library Books</h2>
 

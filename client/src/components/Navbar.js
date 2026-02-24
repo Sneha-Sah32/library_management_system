@@ -16,7 +16,32 @@ export default function Navbar() {
         <h4>LIBRARYLYNX</h4>
 
         <div className="collapse navbar-collapse">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link active" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">Contact Us</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About Us</Link>
+            </li>
+            
+          </ul> */}
+
+          {isLoggedIn ? (
+            <>
+           
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link active" to="/dash"><img src="/images/dash.jpg" alt="dash" style={{height:"50px",objectFit:"cover"}}/></Link>
+            </li>
+            </ul>
+            
+            </>
+          ) : (
+            <>
+             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link active" to="/">Home</Link>
             </li>
@@ -28,37 +53,7 @@ export default function Navbar() {
             </li>
             
           </ul>
-
-          {isLoggedIn ? (
-            <>
-            <div className="collapse navbar-collapse">
-             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-             <li className="nav-item">
-              <Link className="nav-link active" to="/book">Books</Link>
-            </li>
-            </ul>
-            </div>
-            {/* <div className="collapse navbar-collapse">
-             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-             <li className="nav-item">
-              <Link className="nav-link active" to="/profile"><img src="/images/pfp2.jpg" alt="icon" style={{height:"50px",objectFit:"cover"}} /></Link>
-            </li>
-            </ul>
-            </div> */}
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link active" to="/dash"><img src="/images/dash.jpg" alt="dash" style={{height:"50px",objectFit:"cover"}}/></Link>
-            </li>
-            </ul>
-            {/* <button
-              className="btn btn-outline-danger"
-              onClick={handleLogout}
-            >
-              Logout
-            </button> */}
-            </>
-          ) : (
-            <>
+            {/* added */}
              <div className="collapse navbar-collapse">
              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
              <li className="nav-item">
@@ -87,3 +82,24 @@ export default function Navbar() {
   );
 }
 
+
+ {/* <div className="collapse navbar-collapse">
+             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+              <Link className="nav-link active" to="/book">Books</Link>
+            </li>
+            </ul>
+            </div> */}
+            {/* <div className="collapse navbar-collapse">
+             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+              <Link className="nav-link active" to="/profile"><img src="/images/pfp2.jpg" alt="icon" style={{height:"50px",objectFit:"cover"}} /></Link>
+            </li>
+            </ul>
+            </div> */}
+            {/* <button
+              className="btn btn-outline-danger"
+              onClick={handleLogout}
+            >
+              Logout
+            </button> */}

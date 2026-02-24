@@ -33,7 +33,7 @@ export default function Login() {
     // localStorage.setItem("token",data.token);  //setItem
     
     alert("login successful");
-    navigate("/");
+    navigate("/dash");
   }else{
     alert(data.message);
   }
