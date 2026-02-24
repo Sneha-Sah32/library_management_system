@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
+const userAuth = require('../middleware/userAuth')
 
 // router.post("/displaybook",(req,res)=>{
 //     try{
@@ -17,7 +18,7 @@ router.post("/user/register",authController.registerUser);
 router.post("/user/login",authController.loginUser);
 router.get("/user/logout",authController.logoutUser);
 
-router.post("/send-otp", authController.sendOtp);
+router.post("/send-otp", userAuth, authController.sendOtp);
 router.post("/verify-otp", authController.verifyOtp);
 router.post("/reset-password", authController.resetPassword);
 

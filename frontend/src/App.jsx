@@ -10,6 +10,8 @@ import Contact from "./pages/Contact"
 import Admin from "./pages/Admin"
 import StudentDashboard from "./pages/StudentDashboard";
 import ForgotPassword from "./pages/ForgotPassword";
+import NewPassword from "./pages/NewPassword";
+import ResetOTP from "./pages/RestetOTP.jsx";
 // import Student from "./pages/student"
 
  function App(){
@@ -26,6 +28,8 @@ import ForgotPassword from "./pages/ForgotPassword";
             <Route path="/admin" element={<admin/>}/>
             <Route path="/student" element={<StudentDashboard/>}/>
             <Route path="/forget" element={<ForgotPassword/>}/>
+            <Route path="/newpass" element={<NewPassword/>}/>
+            <Route path="/reset" element={<ResetOTP/>}/>
 
           </Routes>
         </div>
