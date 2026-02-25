@@ -18,13 +18,13 @@ router.post("/user/register",authController.registerUser);
 router.post("/user/login",authController.loginUser);
 router.get("/user/logout",authController.logoutUser);
 
-router.post("/send-otp", userAuth, authController.sendOtp);
+router.post("/send-otp", authController.sendOtp);
 router.post("/verify-otp", authController.verifyOtp);
 router.post("/reset-password", authController.resetPassword);
 
-router.post("/admin/register",authController.registerAdmin);
-router.post("/admin/login",authController.loginAdmin);
-router.get("/admin/logout",authController.logoutAdmin);
+// router.post("/admin/register",authController.registerAdmin);
+// router.post("/admin/login",authController.loginAdmin);
+// router.get("/admin/logout",authController.logoutAdmin);
 
 
 module.exports=router;

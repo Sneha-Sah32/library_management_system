@@ -38,7 +38,7 @@ app.get("/",(req,res)=>{
 
 //routes
 app.use("/api/auth",authRoutes);
-app.use("/api", bookRoutes);
+app.use("/api/books", bookRoutes);
 app.use("/api", profileRoutes);
 // router.post("/api/auth", authController.sendOtp);
 // router.post("/api/auth", authController.verifyOtp);

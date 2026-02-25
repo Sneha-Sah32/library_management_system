@@ -1,11 +1,10 @@
-// const jwt = require ("jsonwebtoken");
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
 const userAuth = async (req,res,next)=>{
     const {token} = req.cookies;
 
     if(!token){
-        res.json({
+       return res.json({
             success:false,
             message:"Not Authorized. Login Again"
         })
@@ -14,7 +13,7 @@ const userAuth = async (req,res,next)=>{
         const tokenDecode=jwt.verify(token,process.env.JWT_SECRET);
 // to access the user id from the cookie
         if(tokenDecode.id){
-            req.body.useId = tokenDecode.id
+            req.body.userId = tokenDecode.id;
         }else{
             return res.json({
                 success:false,
@@ -32,4 +31,4 @@ const userAuth = async (req,res,next)=>{
     }
 }
 
-export default userAuth;
+module.exports = userAuth;
