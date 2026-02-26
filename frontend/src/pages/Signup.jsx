@@ -15,6 +15,7 @@ export default function Signup() {
   const [name, setName]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
+  const [role, setRole] = useState("member");
 
   const handleRegister = async (e)=>{
     e.preventDefault();
@@ -26,14 +27,14 @@ export default function Signup() {
           "Content-Type":"application/json"
         },
         credentials:"include",
-        body:JSON.stringify({fullname:name,email,password})
+        body:JSON.stringify({fullname:name,email,password,role})
       });
       const data = await res.json();
 
       if (res.ok){  //(data.success)   changed to match backend response
         login(data.token)
         alert("Registration successful");
-        // navigate("/");
+        navigate("/login");
       }else{
         alert(data.message)
       }
@@ -87,11 +88,23 @@ export default function Signup() {
                         <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute left-3/5 bottom-3/8 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                        className="absolute left-3/5 top-27/50 -translate-y-1/2 text-gray-500 hover:text-gray-700"
                       >
                         {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                       </button>
           </div>
+
+           <div>
+  <label className="block text-gray-700 text-sm mb-1">Role</label>
+  <select
+    value={role}
+    onChange={(e) => setRole(e.target.value)}
+    className="w-full p-2 border-2 border-gray-400 rounded-lg text-black"
+  >
+    <option value="member">Member</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
 
           {/* <div>
             <label className="block text-gray-700 text-sm mb-1">Confirm Password</label>

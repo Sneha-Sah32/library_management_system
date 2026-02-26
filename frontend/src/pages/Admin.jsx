@@ -24,11 +24,11 @@ export default function Admin() {
       </aside>
 
       {/* Main Content */}
-      <main className="main-content flex-1 bg-gray-100 p-8"> 
+      <main className="main-content flex-1 bg-gray-400 p-8"> 
 
         {/* Header */}
        <header className="header flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">Admin Dashboard</h2>
+          <h2 className="text-2xl font-bold text-black">Admin Dashboard</h2>
           <div className="admin-info text-gray-700">Welcome, Admin</div>
         </header> 
 
@@ -36,17 +36,17 @@ export default function Admin() {
          <section className="stats grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="card bg-white p-4 rounded shadow">
             <p className="text-gray-500">Total Books</p>
-            <h3 id="totalBooks" className="text-2xl font-bold">0</h3>
+            <h3 id="totalBooks" className="text-2xl font-bold text-black">0</h3>
           </div>
 
           <div className="card bg-white p-4 rounded shadow">
             <p className="text-gray-500">Total Users</p>
-            <h3 id="totalUsers" className="text-2xl font-bold">0</h3>
+            <h3 id="totalUsers" className="text-2xl font-bold text-black">0</h3>
           </div>
 
           <div className="card bg-white p-4 rounded shadow">
             <p className="text-gray-500">Books Issued</p>
-            <h3 id="totalIssued" className="text-2xl font-bold">0</h3>
+            <h3 id="totalIssued" className="text-2xl font-bold text-black">0</h3>
           </div>
 
           <div className="card bg-red-100 text-red-700 p-4 rounded shadow">
@@ -56,11 +56,11 @@ export default function Admin() {
         </section> 
 
         {/* Recent Activity Table */}
-          <h3 className="text-xl font-bold mb-4">Recent Issued Books</h3>
+          <h3 className="text-xl font-bold mb-4 text-black">Recent Issued Books</h3>
           <div className="overflow-x-auto">
             <table className="min-w-full border border-gray-200">
               <thead>
-                <tr className="bg-gray-200 text-left">
+                <tr className="bg-black text-left">
                   <th className="p-2 border-b">Book Name</th>
                   <th className="p-2 border-b">Student</th>
                   <th className="p-2 border-b">Issue Date</th>

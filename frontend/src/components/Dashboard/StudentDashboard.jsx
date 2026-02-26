@@ -20,7 +20,7 @@ export default function StudentDashboard() {
       
       {/* Sidebar */}
       <aside className="w-64 bg-black text-white p-6">
-        <h1 className="text-2xl font-bold mb-1">BookWorm</h1>
+        <h1 className="text-2xl font-bold mb-1">LYBRARYLYNX</h1>
         <p className="text-sm text-gray-400 mb-8">Library</p>
 
         <nav className="space-y-4">
@@ -33,12 +33,12 @@ export default function StudentDashboard() {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-8 bg-gray-400">
 
         {/* Top User Info */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h2 className="text-xl font-semibold text-black">Muhammad Zeeshan Khan</h2>
+            <h2 className="text-xl font-semibold text-black">Karina Chaudhary</h2>
             <p className="text-gray-500 text-sm text-black">User</p>
           </div>
 
@@ -51,25 +51,25 @@ export default function StudentDashboard() {
         {/* Quick Cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-6">
 
-          <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
-            <div className="bg-gray-100 p-4 rounded-lg">
+          <div className="bg-black p-6 rounded-xl shadow flex items-center gap-4">
+            <div className="bg-gray-400 p-4 rounded-lg">
               <BookOpen />
             </div>
-            <h3 className="text-lg font-medium text-black">Your Borrowed Book List</h3>
+            <h3 className="text-lg font-medium">Your Borrowed Book List</h3>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
-            <div className="bg-gray-100 p-4 rounded-lg">
+          <div className="bg-black p-6 rounded-xl shadow flex items-center gap-4">
+            <div className="bg-gray-400 p-4 rounded-lg">
               <RotateCcw />
             </div>
-            <h3 className="text-lg font-medium text-black">Your Returned Book List</h3>
+            <h3 className="text-lg font-medium">Your Returned Book List</h3>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow flex items-center gap-4">
-            <div className="bg-gray-100 p-4 rounded-lg">
+          <div className="bg-black p-6 rounded-xl shadow flex items-center gap-4">
+            <div className="bg-gray-400 p-4 rounded-lg">
               <Search />
             </div>
-            <h3 className="text-lg font-medium text-black">
+            <h3 className="text-lg font-medium">
               Let's browse books inventory
             </h3>
           </div>

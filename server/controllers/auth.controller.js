@@ -8,7 +8,7 @@ const transporter = require("../config/nodemailer")
 
 
 async function registerUser(req,res){
-    const {fullname,email,password}=req.body;
+    const {fullname,email,password,role}=req.body;
 
     const isUserAlreadyExists = await userModel.findOne({
         email
@@ -25,7 +25,8 @@ async function registerUser(req,res){
      const user = await userModel.create({
         fullname,
         email,
-        password:hashedpassword
+        password:hashedpassword,
+        role
      });
 
     const token = jwt.sign({
@@ -69,7 +70,7 @@ async function loginUser(req,res) {
 
     if (!user){
         res.status(400).json({
-            message:"Invalid email or password"
+            message:"User not found"
         })
     }
 
@@ -96,7 +97,8 @@ async function loginUser(req,res) {
         user:{
             _id:user._id,
             email:user.email,
-            password:user.password
+            password:user.password,
+            role:user.role
         }
     })
 

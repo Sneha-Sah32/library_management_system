@@ -30,8 +30,16 @@ export default function Login() {
     const data = await res.json();
     if (res.ok){
       login(data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
       // localStorage.setItem("token",data.token);  //setItem
-      
+       // Role-based navigation
+      const role = data.user.role;
+      if (role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/studentdash");
+      }
       alert("login successful");
       // navigate("/dash");
     }else{
