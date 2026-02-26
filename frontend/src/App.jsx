@@ -8,10 +8,13 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import Contact from "./pages/Contact"
 import Admin from "./pages/Admin"
-import StudentDashboard from "./pages/StudentDashboard";
+import StudentDashboard from "./components/Dashboard/StudentDashboard.jsx";
 import ForgotPassword from "./pages/ForgotPassword";
 import NewPassword from "./pages/NewPassword";
 import ResetOTP from "./pages/RestetOTP.jsx";
+import AdminDashboard from "./components/Dashboard/AdminDashboard.jsx";
+import Student from "./pages/Student.jsx";
+import IssueBooks from "./pages/IssueBooks.jsx";
 // import Student from "./pages/student"
 
  function App(){
@@ -25,11 +28,14 @@ import ResetOTP from "./pages/RestetOTP.jsx";
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/contact" element={<Contact/>}/>
-            <Route path="/admin" element={<admin/>}/>
-            <Route path="/student" element={<StudentDashboard/>}/>
+            <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admindash" element={<AdminDashboard/>}/>
+            <Route path="/studentdash" element={<StudentDashboard/>}/>
+            <Route path="/student" element={<Student/>}/>
             <Route path="/forget" element={<ForgotPassword/>}/>
             <Route path="/newpass" element={<NewPassword/>}/>
             <Route path="/reset" element={<ResetOTP/>}/>
+            <Route path="/issuebooks" element={<IssueBooks/>}/>
 
           </Routes>
         </div>

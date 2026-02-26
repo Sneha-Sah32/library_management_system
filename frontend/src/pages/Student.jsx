@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import bgImage from "../assets/download.jpg";
 
-export default function StudentDashboard() {
+export default function Student() {
   return (
     <div
           className="min-h-screen flex items-center justify-center bg-cover bg-center relative"

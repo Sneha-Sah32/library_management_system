@@ -25,7 +25,7 @@ export default function Navbar() {
         <Link to="/signup" className="nav-link text-gray-800">Sign Up</Link>
         <Link to="/contact" className="nav-link text-gray-800">Contact</Link>
         <Link to="/admin" className="nav-link text-gray-800">Admin</Link>
-        <Link to="/student" className="nav-link text-gray-800">Student</Link>
+        <Link to="/studentdash" className="nav-link text-gray-800">Student</Link>
 
       </div>
     </nav>

@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom"
 import bgImage from "../assets/adminnn.jpg"
 
-export default function AdminDashboard() {
+export default function Admin() {
   return (
     <div
           className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
