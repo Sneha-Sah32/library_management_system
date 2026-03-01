@@ -15,6 +15,8 @@ import ResetOTP from "./pages/RestetOTP.jsx";
 import AdminDashboard from "./components/Dashboard/AdminDashboard.jsx";
 import Student from "./pages/Student.jsx";
 import IssueBooks from "./pages/IssueBooks.jsx";
+import Profile from "./pages/Profile.jsx";
+import Books from "./pages/Books.jsx";
 // import Student from "./pages/student"
 
  function App(){
@@ -36,6 +38,9 @@ import IssueBooks from "./pages/IssueBooks.jsx";
             <Route path="/newpass" element={<NewPassword/>}/>
             <Route path="/reset" element={<ResetOTP/>}/>
             <Route path="/issuebooks" element={<IssueBooks/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/books" element={<Books/>}/>
+            {/* <Route path="/profile" element={<Profile/>}/> */}
 
           </Routes>
         </div>

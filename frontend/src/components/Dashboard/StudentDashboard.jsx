@@ -1,15 +1,6 @@
 import React from 'react'
 
-// const StudentDashboard = () => {
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-3xl font-bold mb-4">Student Dashboard</h1>
-//       <p>Welcome, Student! Here you can see your borrowed books, fines, etc.</p>
-//     </div>
-//   )
-// }
 
-// export default StudentDashboard
 
 
 import { BookOpen, RotateCcw, Search } from "lucide-react";
@@ -26,14 +17,14 @@ export default function StudentDashboard() {
         <nav className="space-y-4">
           <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">Dashboard</p>
           <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">Books</p>
-          <p className="bg-gray-800 p-2 rounded cursor-pointer">
+          <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">
             My Borrowed Books
           </p>
         </nav>
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 p-8 bg-gray-400">
+      <div className="flex-1 p-8 bg-gray-100">
 
         {/* Top User Info */}
         <div className="flex justify-between items-center mb-8">

@@ -1,8 +1,17 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import { useAuth } from "../context/AuthContext";
 import bgImage from "../assets/adminnn.jpg"
 
+
 export default function Admin() {
+  const navigate = useNavigate();
+    const { isLoggedIn, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div
           className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
@@ -15,11 +24,20 @@ export default function Admin() {
 
         <nav className="flex flex-col space-y-4">
           <a href="#" className="hover:text-purple-400">Dashboard</a>
-          <a href="#" className="hover:text-purple-400">Books</a>
+          <a href="/books" className="hover:text-purple-400">Books</a>
           <a href="#" className="hover:text-purple-400">Users</a>
           <a href="#" className="hover:text-purple-400">Issued Books</a>
           <a href="#" className="hover:text-purple-400">Reports</a>
-          <a href="index.html" className="logout mt-auto text-red-500 hover:text-red-400">Logout</a>
+          <a href="/profile" className="hover:text-purple-400">profile</a>
+          {/* <a href="index.html" className="logout mt-auto text-red-500 hover:text-red-400">Logout</a> */}
+           {isLoggedIn && (
+            <button
+              onClick={handleLogout}
+              className="mt-auto text-red-500 hover:text-red-400 text-left"
+            >
+              Logout
+            </button>
+          )}
         </nav>
       </aside>
 
