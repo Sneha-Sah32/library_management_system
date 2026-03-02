@@ -20,6 +20,9 @@ export default function StudentDashboard() {
           <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">
             My Borrowed Books
           </p>
+          <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">
+            Logout
+          </p>
         </nav>
       </aside>
 

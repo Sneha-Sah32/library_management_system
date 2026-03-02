@@ -17,6 +17,7 @@ import Student from "./pages/Student.jsx";
 import IssueBooks from "./pages/IssueBooks.jsx";
 import Profile from "./pages/Profile.jsx";
 import Books from "./pages/Books.jsx";
+import About from "./pages/About.jsx";
 // import Student from "./pages/student"
 
  function App(){
@@ -40,7 +41,7 @@ import Books from "./pages/Books.jsx";
             <Route path="/issuebooks" element={<IssueBooks/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/books" element={<Books/>}/>
-            {/* <Route path="/profile" element={<Profile/>}/> */}
+            <Route path="/about" element={<About/>}/>
 
           </Routes>
         </div>

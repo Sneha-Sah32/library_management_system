@@ -29,8 +29,8 @@ export default function Login() {
   
     const data = await res.json();
     if (res.ok){
-      login(data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
+      login(data.token,data.user);
+      // localStorage.setItem("user", JSON.stringify(data.user));
 
       // localStorage.setItem("token",data.token);  //setItem
        // Role-based navigation
