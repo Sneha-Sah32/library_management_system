@@ -1,11 +1,43 @@
 import React from 'react'
-
-
-
-
+import {Link, useNavigate} from "react-router-dom"
+import { useAuth } from "../../context/AuthContext";
 import { BookOpen, RotateCcw, Search } from "lucide-react";
+import { useState,useEffect } from 'react';
 
 export default function StudentDashboard() {
+
+    const navigate = useNavigate();
+      const { isLoggedIn, logout } = useAuth();
+  
+    const handleLogout = () => {
+      logout();
+      navigate("/");
+    };
+
+      const [user, setUser] = useState(null);
+      const [loading, setLoading] = useState(true);
+     
+      useEffect(() => {
+        fetch("http://localhost:5000/api/profile", {
+          method: "GET",
+          credentials: "include",
+        })
+          .then(res => res.json())
+          .then(data => {
+            setUser(data);
+            setLoading(false);
+          })
+          .catch(err => {
+            console.error(err);
+            setLoading(false);
+          });
+      }, []);
+
+
+if (loading) {
+  return <div className="p-8">Loading...</div>;
+}
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       
@@ -16,11 +48,12 @@ export default function StudentDashboard() {
 
         <nav className="space-y-4">
           <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">Dashboard</p>
-          <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">Books</p>
+          {/* <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">Books</p> */}
+           <a href="/books" className="hover:bg-gray-800 p-2 rounded cursor-pointer">Books</a>
           <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">
             My Borrowed Books
           </p>
-          <p className="hover:bg-gray-800 p-2 rounded cursor-pointer">
+          <p className="hover:bg-gray-800 p-2 rounded cursor-pointer" onClick={handleLogout}>
             Logout
           </p>
         </nav>
@@ -32,8 +65,8 @@ export default function StudentDashboard() {
         {/* Top User Info */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h2 className="text-xl font-semibold text-black">Karina Chaudhary</h2>
-            <p className="text-gray-500 text-sm text-black">User</p>
+            <h2 className="text-xl font-semibold text-black">{user?.fullname}</h2>
+            <p className="text-gray-500 text-sm text-black">{user?.role}</p>
           </div>
 
           <div className="text-right text-sm text-gray-500">
