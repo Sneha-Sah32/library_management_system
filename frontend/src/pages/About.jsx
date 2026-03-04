@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export default function About() {
@@ -119,9 +120,10 @@ const teamMembers = [
           Join our team and help us create amazing experiences.
         </p>
 
-        <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+      <Link to="/contact"> <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
           Contact Us
         </button>
+        </Link> 
       </section>
 
      

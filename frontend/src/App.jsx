@@ -18,6 +18,7 @@ import IssueBooks from "./pages/IssueBooks.jsx";
 import Profile from "./pages/Profile.jsx";
 import Books from "./pages/Books.jsx";
 import About from "./pages/About.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 // import Student from "./pages/student"
 
  function App(){
@@ -31,16 +32,24 @@ import About from "./pages/About.jsx";
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>}/>
             <Route path="/contact" element={<Contact/>}/>
-            <Route path="/admin" element={<Admin/>}/>
-            <Route path="/admindash" element={<AdminDashboard/>}/>
-            <Route path="/studentdash" element={<StudentDashboard/>}/>
+            <Route path="/admin" element={<ProtectedRoute>
+                <Admin/>
+                </ProtectedRoute>
+                }/>
+            <Route path="/admindash" element={
+              <ProtectedRoute>
+                <AdminDashboard/>
+                </ProtectedRoute>
+                }
+                />
+            <Route path="/studentdash" element={<ProtectedRoute><StudentDashboard/></ProtectedRoute>}/>
             <Route path="/student" element={<Student/>}/>
             <Route path="/forget" element={<ForgotPassword/>}/>
             <Route path="/newpass" element={<NewPassword/>}/>
             <Route path="/reset" element={<ResetOTP/>}/>
             <Route path="/issuebooks" element={<IssueBooks/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-            <Route path="/books" element={<Books/>}/>
+            <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
+            <Route path="/books" element={<ProtectedRoute><Books/></ProtectedRoute>}/>
             <Route path="/about" element={<About/>}/>
 
           </Routes>
